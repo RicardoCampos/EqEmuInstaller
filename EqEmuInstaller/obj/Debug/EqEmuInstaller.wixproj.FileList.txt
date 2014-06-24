@@ -1,0 +1,8 @@
+C:\Code\Mine\EqEmuInstaller\EqEmuInstaller\bin\Debug\EqEmuInstaller.msi
+C:\Code\Mine\EqEmuInstaller\EqEmuInstaller\bin\Debug\EqEmuInstaller.wixpdb
+obj\Debug\Product.wixobj
+C:\EQ\EqEmuInstaller\EqEmuInstaller\bin\Debug\EqEmuInstaller.msi
+C:\EQ\EqEmuInstaller\EqEmuInstaller\bin\Debug\EqEmuInstaller.wixpdb
+obj\Debug\EqEmuInstaller.wixproj.BindContentsFileListnull.txt
+obj\Debug\EqEmuInstaller.wixproj.BindOutputsFileListnull.txt
+obj\Debug\EqEmuInstaller.wixproj.BindBuiltOutputsFileListnull.txt

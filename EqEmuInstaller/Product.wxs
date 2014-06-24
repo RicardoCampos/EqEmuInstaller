@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="EqEmulator-x86" Language="1033" Version="1.0.0.0" Manufacturer="EqEmu" UpgradeCode="4dfea7ef-5bb4-406c-8614-83e6b6750d0c">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    <Property Id="INSTALLPATH">C:\EQEmu</Property>
+    <Feature Id="ProductFeature" Title="EqEmulator" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="LuaModules" />
+      <ComponentGroupRef Id="EmptyFolders" />
+      <ComponentGroupRef Id="BatchFiles" />
+    </Feature>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="INSTALLPATH">
+        <Directory Id="LOGSFOLDER" Name="logs"/>
+        <Directory Id="LUAFOLDER" Name="lua_modules"/>
+        <Directory Id="MAPSFOLDER" Name="Maps"/>
+        <Directory Id="SHAREDFOLDER" Name="shared"/>
+        <Directory Id="PLUGINSFOLDER" Name="plugins"/>
+      <Directory Id="QUESTSFOLDER" Name="quests"/>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="BatchFiles" Directory="INSTALLPATH">
+      <Component Id="startup_private.bat" Guid="{E62D9AB6-EC2C-423E-A572-8BF1E38CD17A}">
+        <File Id="startup_private.bat" Name="startup_private.bat" Source="Files\startup_private.bat" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="startup_public.bat" Guid="{1A6CD705-3728-4015-B989-B671AD2D476A}">
+        <File Id="startup_public.bat" Name="startup_public.bat" Source="Files\startup_public.bat" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+      <Fragment>
+    <ComponentGroup Id="LuaModules" Directory="LUAFOLDER">
+      <Component Id="client_ext.lua" Guid="{2885ACC9-1FE6-4343-9DA1-9C3A9CB306C2}">
+        <File Id="client_ext.lua" Name="client_ext.lua" Source="Files\lua_modules\client_ext.lua" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="directional.lua" Guid="{42E1A7D8-8F19-4A3B-955C-8A2346C455FC}">
+        <File Id="directional.lua" Name="directional.lua" Source="Files\lua_modules\directional.lua" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="entity_list_ext.lua" Guid="{8C5FD48D-B494-41ED-8BC8-02EDB26FC1CF}">
+        <File Id="entity_list_ext.lua" Name="entity_list_ext.lua" Source="Files\lua_modules\entity_list_ext.lua" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="general_ext.lua" Guid="{C678073E-7994-411E-8FA7-BC194BA698A1}">
+        <File Id="general_ext.lua" Name="general_ext.lua" Source="Files\lua_modules\general_ext.lua" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="items.lua" Guid="{E3CEFBD1-1B5B-4B89-AD64-C231B1343951}">
+        <File Id="items.lua" Name="items.lua" Source="Files\lua_modules\items.lua" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="mob_ext.lua" Guid="{EFA18A4E-5F1D-4BEA-9162-47FB1F039CFD}">
+        <File Id="mob_ext.lua" Name="mob_ext.lua" Source="Files\lua_modules\mob_ext.lua" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="npc_ext.lua" Guid="{89A6607B-DD88-4001-8579-CC158664D640}">
+        <File Id="npc_ext.lua" Name="npc_ext.lua" Source="Files\lua_modules\npc_ext.lua" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="string_ext.lua" Guid="{7CD22064-9B47-4AA3-920B-A33581C63525}">
+        <File Id="string_ext.lua" Name="string_ext.lua" Source="Files\lua_modules\string_ext.lua" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="thread_manager.lua" Guid="{58434A13-B01C-4BE6-9CF1-79B1BCC4AAF3}">
+        <File Id="thread_manager.lua" Name="thread_manager.lua" Source="Files\lua_modules\thread_manager.lua" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="EmptyFolders">
+      <Component Id="CreateLOGSFOLDER" Directory="LOGSFOLDER" Guid="{E25D9895-C609-42DB-B567-F4EFC8A8C08D}">
+        <CreateFolder />
+      </Component>
+      <Component Id="CreateMAPSFOLDER" Directory="MAPSFOLDER" Guid="{D5CD8B4A-3118-428F-8402-6A66007339DB}">
+        <CreateFolder />
+      </Component>
+      <Component Id="CreateSHAREDFOLDER" Directory="SHAREDFOLDER" Guid="{8556349A-92AC-4336-91AD-B7400A7D71DD}">
+        <CreateFolder />
+      </Component>
+      <Component Id="CreatePLUGINSFOLDER" Directory="PLUGINSFOLDER" Guid="{8E160315-C5A0-4EA0-8049-8250A660CD74}">
+        <CreateFolder />
+      </Component>
+          <Component Id="CreateQUESTSFOLDER" Directory="QUESTSFOLDER" Guid="{96229D1A-B818-409F-978A-358A20E920F7}">
+        <CreateFolder />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLPATH">
+      <Component Id="logini" Guid="{DA1F72CD-3280-439E-8E0C-36571BF7DB20}">
+        <File Id="log" Name="log.ini" Source="Files\log.ini" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="loginini" Guid="{B5FCF5A2-6501-445E-A965-99F8C43A81B6}">
+        <File Id="login" Name="login.ini" Source="Files\login.ini" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="titpatchfile" Guid="{7AAA4850-8490-4C65-8B6A-939D2C6A20DA}">
+        <File Id="titanium" Name="login_opcodes.conf" Source="Files\login_opcodes.conf" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="sodpatchfile" Guid="{8E553BB1-65CC-4A25-8879-FB7553D534FD}">
+        <File Id="sod" Name="login_opcodes_sod.conf" Source="Files\login_opcodes_sod.conf" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="config" Guid="{96AA58DE-EA00-4A15-88F9-6545E32A76E4}">
+        <File Id="config" Name="eqemu_config.xml" Source="Files\eqemu_config.xml" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="commands.pl" Guid="{B756C03D-4D1C-4FF5-A767-A24BB827F582}">
+        <File Id="commands.pl" Name="commands.pl" Source="Files\commands.pl" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="worldui.pl" Guid="{D39065E8-9FD1-457E-B279-7757169F4FD9}">
+        <File Id="worldui.pl" Name="worldui.pl" Source="Files\worldui.pl" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="plugin.pl" Guid="{CF65242E-71DD-41F6-859A-43AA42B8293B}">
+        <File Id="plugin.pl" Name="plugin.pl" Source="Files\plugin.pl" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="ucs" Guid="{3B41614A-9DB1-46B6-B69B-2DC93E1103EF}">
+        <File Id="ucs" Name="ucs.exe" Source="Files\ucs.exe" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="EQEmuAuthCrypto.dll" Guid="{35135EFD-3465-40A7-99CD-5EF8B68BE162}">
+        <File Id="EQEmuAuthCrypto.dll" Name="EQEmuAuthCrypto.dll" Source="Files\EQEmuAuthCrypto.dll" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="lua" Guid="{ECB3066E-CE3F-4705-9EC9-F286F919AF0A}">
+        <File Id="lua" Name="lua51.dll" Source="Files\lua51.dll" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="loginserver" Guid="{3EFA2779-D66C-4BEF-9431-9E85D8B65704}">
+        <File Id="loginserver" Name="loginserver.exe" Source="Files\loginserver.exe" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="shared_memory" Guid="{6769E0A6-80BA-4623-891F-9E0595790C61}">
+        <File Id="shared_memory" Name="shared_memory.exe" Source="Files\shared_memory.exe" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="world" Guid="{AC60EAB4-0116-48A6-A363-38329F073075}">
+        <File Id="world" Name="world.exe" Source="Files\world.exe" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="eqlaunch" Guid="{84A48CAE-18A6-4DDF-AF92-731E6073C440}">
+        <File Id="eqlaunch" Name="eqlaunch.exe" Source="Files\eqlaunch.exe" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="Zone" Guid="{F4CB0B4B-0611-47C5-B325-D1634F8C335A}">
+        <File Id="zone" Name="Zone.exe" Source="Files\Zone.exe" DiskId="1" KeyPath="yes" Vital='yes'/>
+      </Component>
+      <Component Id="EqInstallHelper" Guid="{6769A9AC-C99D-4B70-9A7E-0DD6DF3979FA}">
+        <File Id="EqInstallHelper" Name="$(var.EqInstallHelper.TargetFileName)" Source="$(var.EqInstallHelper.TargetPath)" DiskId="1" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

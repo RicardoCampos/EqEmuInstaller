@@ -1,0 +1,11 @@
+[Debug] [04.29.14 - 14:32:22] Logging System Init.
+[Debug] [04.29.14 - 14:32:22] Config System Init.
+[Debug] [04.29.14 - 14:32:22] MySQL Database Init.
+[Debug] [04.29.14 - 14:32:22] Encryption Initialize.
+[Debug] [04.29.14 - 14:32:22] Encryption Loaded Successfully.
+[Debug] [04.29.14 - 14:32:22] Server Manager Initialize.
+[Network] [04.29.14 - 14:32:22] ServerManager listening on port 5998
+[Debug] [04.29.14 - 14:32:22] Client Manager Initialize.
+[Network] [04.29.14 - 14:32:22] ClientManager listening on Titanium stream.
+[Network] [04.29.14 - 14:32:22] ClientManager listening on SoD stream.
+[Debug] [04.29.14 - 14:32:22] Server Started.

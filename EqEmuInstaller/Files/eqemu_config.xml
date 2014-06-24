@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<server>
+  <world>
+    <!-- Set the shortname to ONE word. The longname is what shows up on server list -->
+    <shortname>INSERT_SHORTNAME</shortname>
+    <longname>INSERT_LONGNAME</longname>
+    <!-- DO NOT EDIT ANY LINES BETWEEN HERE AND THE DATABASE SECTION -->
+    <!-- <address>do.not.edit</address> -->
+    <!-- <localaddress>do.not.edit</localaddress> -->
+    <!-- Loginserver information. DO NOT EDIT -->
+    <loginserver>
+      <host>login.eqemulator.net</host>
+      <port>5998</port>
+      <account>INSERT_LS_USER</account>
+      <password>INSERT_LS_PASSWORD</password>
+    </loginserver>
+    <!-- Server status. Default is unlocked DO NOT EDIT RIGHT NOW -->
+    <!--<locked/>-->
+    <!-- <unlocked/> -->
+    <!-- Sets the ip/port for the tcp connections. DO NOT EDIT -->
+    <tcp ip="127.0.0.1" port="9000" telnet="disable"/>
+    <!-- Sets the shared key used by zone/launcher to connect to world -->
+    <key>INSERT_GUID</key>
+    <!-- Enable and set the port for the HTTP service. Defaults are shown -->
+    <http port="9080" enabled="false" mimefile="mime.types" />
+  </world>
+  <!-- Chatserver (channels) information. DO NOT EDIT -->
+  <chatserver>
+    <host>192.168.1.x</host>
+    <port>7778</port>
+  </chatserver>
+  <!-- Mailserver (in-game mail) information. DO NOT EDIT -->
+  <mailserver>
+    <host>192.168.1.x</host>
+    <port>7778</port>
+  </mailserver>
+  <zones>
+    <!-- The defaultstatus is what status the new toons will have on your server -->
+    <defaultstatus>0</defaultstatus>
+    <!-- Sets port range for world to use to auto configure zones DO NOT EDIT RIGHT NOW-->
+    <ports low="7000" high="7100"/>
+  </zones>
+  <!-- Set username to root and password is your MySQL password and db to peq -->
+  <database>
+    <host>127.0.0.1</host>
+    <port>3306</port>
+    <username>INSERT_SQL_USER</username>
+    <password>INSERT_SQL_PASSWORD</password>
+    <db>peq</db>
+  </database>
+  <qsdatabase>
+    <host>127.0.0.1</host>
+    <port>3306</port>
+    <username>INSERT_SQL_USER</username>
+    <password>INSERT_SQL_PASSWORD</password>
+    <db>peq</db>
+  </qsdatabase>
+  <!-- Launcher Configuration DO NOT EDIT-->
+  <launcher>
+    <!-- <logprefix>logs/zone-</logprefix> -->
+    <!-- <logsuffix>.log</logsuffix> -->
+    <!-- <exe>zone.exe</exe> -->
+    <!-- <timers restart="10000" reterminate="10000"> -->
+  </launcher>
+  <!-- File locations. DO NOT EDIT -->
+  <files>
+    <!-- <spells>spells_us.txt</spells> -->
+    <!-- <opcodes>opcodes.conf</opcodes> -->
+    <!-- <logsettings>log.ini</logsettings> -->
+    <!-- <eqtime>eqtime.cfg</eqtime> -->
+  </files>
+  <!-- Directory locations. DO NOT EDIT -->
+  <directories>
+    <!-- <maps>Maps</maps> -->
+    <!-- <quests>quests</quests> -->
+    <!-- <plugins>plugins</plugins> -->
+  </directories>
+</server>
