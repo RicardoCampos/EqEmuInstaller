@@ -12,17 +12,11 @@ namespace EqInstallHelper
     class Program
     {
         private static bool _publicServer = true;
-
         private static string _serverShortName = string.Empty;
         private static string _serverLongName = string.Empty;
-
         private static string _lsUser = string.Empty;
         private static string _lsPassword = string.Empty;
-
         private static string _sqlPassword = string.Empty;
-
-        private static string _eqUser = string.Empty;
-        private static string _eqPassword = string.Empty;
 
         static void Main(string[] args)
         {
@@ -70,27 +64,11 @@ namespace EqInstallHelper
                 return;
             }
 
-            //eq user handling changes between public/private, as does ls. for  pu
-
             System.Console.WriteLine("Please enter your login server user name, then hit enter.");
             if (!_publicServer) System.Console.WriteLine("This login will be created for you automatically.");
             _lsUser = System.Console.ReadLine();
             System.Console.WriteLine("Please enter your login server password, then hit enter.");
             _lsPassword = System.Console.ReadLine();
-
-            //System.Console.WriteLine("Please enter your eq user name to use as GM, then hit enter. This might be the same as your loginserver user account.");
-            //if (!_publicServer) 
-            //{
-            //    System.Console.WriteLine("This login will be created for you automatically.");
-            //}
-            //else
-            //{
-            //    System.Console.WriteLine("This login must have been set up already.");
-            //}
-            //_eqUser=System.Console.ReadLine();
-            //System.Console.WriteLine("Please enter the password associated with {0}, then hit enter.", _eqUser);
-            //_eqPassword=System.Console.ReadLine();
-
 
             WriteConfig();
             System.Console.WriteLine("Setting up the peq database...");
@@ -169,7 +147,7 @@ namespace EqInstallHelper
             y = ls.Descendants("password").Single();
             y.Value = _lsPassword;
             var key = doc.Descendants("key").Single();
-            key.Value = "SOME_GUID";
+            key.Value = System.Guid.NewGuid().ToString();
 
             var db = doc.Descendants("database").Single();
             y = db.Descendants("username").Single();
@@ -181,10 +159,7 @@ namespace EqInstallHelper
             y.Value = "root";
             y = db.Descendants("password").Single();
             y.Value = _sqlPassword;
-
             doc.Save("eqemu_config.xml");
-            System.Console.WriteLine("Found it");
-
         }
     }
 }

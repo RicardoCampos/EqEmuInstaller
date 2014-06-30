@@ -1,2 +1,0 @@
-C:\EQ\EqEmuInstaller\EqEmuInstaller\bin\Debug\EqEmuInstaller.msi
-C:\EQ\EqEmuInstaller\EqEmuInstaller\bin\Debug\EqEmuInstaller.wixpdb
